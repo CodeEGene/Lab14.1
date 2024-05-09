@@ -21,6 +21,7 @@ int main() {
 	}
 	cout << "Average is: " << average(values, intSize)<<endl;
 	return 0;
+
 }
 
 double average(double* a, int size) {
