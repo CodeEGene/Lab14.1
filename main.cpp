@@ -22,6 +22,7 @@ int main() {
 	cout << "Average is: " << average(values, intSize)<<endl;
 
 	double* max = maximum(values, intSize);
+	double* min = minimum(values, intSize);
 	int pos = 0;
 	for (int i = 0; i < intSize; i++) {
 		if (&values[i] == max) {
@@ -30,6 +31,12 @@ int main() {
 	}
 
 	cout << "Maximum value is element #"<<pos<< ": "<<*max<<endl;
+	for (int i = 0; i < intSize; i++) {
+		if (&values[i] == min) {
+			pos = i;
+		}
+	}
+	cout << "Minimum value is element #" << pos << ": " << *min << endl;
 	return 0;
 
 }
@@ -52,5 +59,11 @@ double* maximum(double* a, int size) {
 	return currentValue;
 }
 double* minimum(double* a, int size) {
-	return a;
+	double* currentValue = a;
+	for (int i = 1; i < size; i++) {
+		if (currentValue > a + i) {
+			currentValue = a + i;
+		}
+	}
+	return currentValue;
 }
